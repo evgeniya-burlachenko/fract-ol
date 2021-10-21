@@ -6,11 +6,44 @@
 /*   By: skelly <skelly@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:03:28 by skelly            #+#    #+#             */
-/*   Updated: 2021/10/21 14:32:08 by skelly           ###   ########.fr       */
+/*   Updated: 2021/10/22 02:44:33 by skelly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+void draw_fractol(t_fractol *fractol)
+{
+	int			x;
+	int			y;
+	t_complex	factor;
+	//factor показывает чему равен пиксель на комплексной плоскости
+	//ширина комплексной плоскости / ширина экрана
+	//высота комплексной плоскости / высота экрана
+	factor = init_complex((fractol->max.re - fractol->min.re) / (WIDTH ),
+			(fractol->max.im - fractol->min.im) / (HEIGHT ));
+	y = 0;
+	while (y < HEIGHT)
+	{
+		//c.im считается особым образом. 
+		//Это происходит по причине того, 
+		//что ось y в окне программы направлена сверху вниз, 
+		//а не снизу вверх как мы привыкли.
+		fractol->c.im = fractol->max.im - y * factor.im;
+		x = 0;
+		while (x < WIDTH)
+		{
+			fractol->c.re = fractol->min.re + x * factor.re;
+			fractol->formula(fractol);
+			my_mlx_pixel_put(fractol, x, y, init_color(fractol));
+			x++;
+		}
+		y++;
+	}
+	mlx_put_image_to_window(fractol->mlx_ptr, fractol->window_ptr,
+		fractol->image->img, 0, 0);
+	
+}
 
 void	start_fractol(t_fractol *fractol)
 {
@@ -25,6 +58,15 @@ void	start_fractol(t_fractol *fractol)
 			WIDTH, HEIGHT, "Fract-ol");
 	//теперь обработаю изображение в отдельной ф-ции
 	fractol->image = image_init(fractol);
+	//Теперь у нас есть адрес изображения, но все еще нет пикселей. 
+	//но line_length длина строки не всегда равна ширине окна .
+	//Поэтому мы должны ВСЕГДА вычислять смещение памяти
+	//используя формулу:
+	//int offset = (y * line_length + x * (bpp / 8)); -> draw_fractol
+	init_default(fractol);
+	mlx_hook(fractol->window_ptr, KEY_PRESS, 0, key_control, fractol);
+	draw_fractol(fractol);
+	
 	// нужно будет вызвать, mlx_loop, чтобы начать рендеринг окна. 
 	mlx_loop(fractol->mlx_ptr);
 }
@@ -36,8 +78,11 @@ void	parse_fractol(char *argv)
 	fractol = malloc(sizeof(t_fractol));
 	if (!(ft_strncmp(argv, "Mandelbrot", 11)))
 	{
+		fractol->formula = &mandelbrot;
 		start_fractol(fractol);
 	}
+	free(fractol);
+	
 }
 
 void	menu_fractol(void)
@@ -65,7 +110,7 @@ void	menu_fractol(void)
 int main (int argc, char **argv)
 {
 	if (argc == 2)
-		parse_fractolgv[1]);
+		parse_fractol(argv[1]);
 	else
 		menu_fractol();
 	return (0);
