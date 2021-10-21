@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol_main.c                                     :+:      :+:    :+:   */
+/*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skelly <skelly@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:03:28 by skelly            #+#    #+#             */
-/*   Updated: 2021/10/21 13:31:37 by skelly           ###   ########.fr       */
+/*   Updated: 2021/10/21 14:32:08 by skelly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	menu_fractol(void)
 int main (int argc, char **argv)
 {
 	if (argc == 2)
-		parse_fracto(argv[1]);
+		parse_fractolgv[1]);
 	else
 		menu_fractol();
 	return (0);
