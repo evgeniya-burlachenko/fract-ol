@@ -6,7 +6,7 @@
 /*   By: skelly <skelly@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:03:28 by skelly            #+#    #+#             */
-/*   Updated: 2021/10/22 02:44:33 by skelly           ###   ########.fr       */
+/*   Updated: 2021/10/22 19:36:14 by skelly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void draw_fractol(t_fractol *fractol)
 		{
 			fractol->c.re = fractol->min.re + x * factor.re;
 			fractol->formula(fractol);
+			//если не попадает в множество мандельброта
 			my_mlx_pixel_put(fractol, x, y, init_color(fractol));
 			x++;
 		}
@@ -42,7 +43,6 @@ void draw_fractol(t_fractol *fractol)
 	}
 	mlx_put_image_to_window(fractol->mlx_ptr, fractol->window_ptr,
 		fractol->image->img, 0, 0);
-	
 }
 
 void	start_fractol(t_fractol *fractol)
@@ -65,6 +65,9 @@ void	start_fractol(t_fractol *fractol)
 	//int offset = (y * line_length + x * (bpp / 8)); -> draw_fractol
 	init_default(fractol);
 	mlx_hook(fractol->window_ptr, KEY_PRESS, 0, key_control, fractol);
+	mlx_hook(fractol->window_ptr, MOUSE_PRESS, 0, mouse_control, fractol);
+	if (fractol->formula == &julia)
+		mlx_hook(fractol->window_ptr, MOUSE_MOTION, 0, change_julia, fractol);
 	draw_fractol(fractol);
 	
 	// нужно будет вызвать, mlx_loop, чтобы начать рендеринг окна. 
@@ -81,8 +84,28 @@ void	parse_fractol(char *argv)
 		fractol->formula = &mandelbrot;
 		start_fractol(fractol);
 	}
-	free(fractol);
+	else if (!(ft_strncmp(argv, "Julia", 6)))
+	{
+		fractol->formula = &julia;
+		start_fractol(fractol);
+	}
+	else if (!(ft_strncmp(argv, "Burning_Ship", 13)))
+	{
+		fractol->formula = &burning_ship;
+		start_fractol(fractol);
+	}
+	else if (!(ft_strncmp(argv, "Celtic_mandelbar", 16)))
+	{
+		fractol->formula = &celtic_mandelbar;
+		start_fractol(fractol);
+	}
+	else if (!(ft_strncmp(argv, "Perpendicular_buffalo", 22)))
+	{
+		fractol->formula = &perpendicular_buffalo;
+		start_fractol(fractol);
+	}
 	
+	free(fractol);
 }
 
 void	menu_fractol(void)

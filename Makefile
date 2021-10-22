@@ -6,7 +6,7 @@
 #    By: skelly <skelly@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/21 14:11:19 by skelly            #+#    #+#              #
-#    Updated: 2021/10/22 02:36:30 by skelly           ###   ########.fr        #
+#    Updated: 2021/10/22 10:46:44 by skelly           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ SRCS		= fractol.c\
 		  	  fractol_init.c\
 			  fractol_color.c\
 			  fractol_formula.c\
-			  fractol_key.c
+			  fractol_key.c\
+			  fractol_mouse.c
 				
 LIBFT		= libft
 CC			= gcc -Wall -Wextra -Werror -O3 -fsanitize=address -g

@@ -6,7 +6,7 @@
 /*   By: skelly <skelly@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 13:33:36 by skelly            #+#    #+#             */
-/*   Updated: 2021/10/22 02:48:22 by skelly           ###   ########.fr       */
+/*   Updated: 2021/10/22 19:32:54 by skelly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_image	*image_init(t_fractol *fractol)
 //используя формулу:
 //int offset = (y * line_length + x * (bpp / 8)); -> draw_fractol
 
-t_complex	init_complex(double re, double im)
+t_complex	init_complex(double re, double im)// инициализация комплексного числа
 {
 	t_complex	complex;
 	
@@ -47,11 +47,12 @@ t_complex	init_complex(double re, double im)
 
 void	init_default(t_fractol *fractol)
 {
-	fractol->max_iter = 50;
+	fractol->max_iter = 50;//Чем больше будет указанное число, тем точнее будет полученное изображение фрактала. И тем больше вычислительных задач ляжет на компьютер.
 	fractol->min = init_complex(-2.0, -2.0);
 	fractol->max.re = 2.0;
 	fractol->max.im = fractol->min.im + (fractol->max.re 
 			- fractol->min.re) * HEIGHT / WIDTH; 
 	fractol->color = 1;
-	
+	fractol->press = 0;
+	fractol->k = init_complex(-0.4, 0.6);
 }

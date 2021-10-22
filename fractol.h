@@ -6,15 +6,15 @@
 /*   By: skelly <skelly@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:03:38 by skelly            #+#    #+#             */
-/*   Updated: 2021/10/22 02:37:42 by skelly           ###   ########.fr       */
+/*   Updated: 2021/10/22 19:00:25 by skelly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define WIDTH 			1000
-# define HEIGHT			1000
+# define WIDTH 				1000
+# define HEIGHT				1000
 
 
 # define KEY_PRESS			2
@@ -43,13 +43,13 @@
 #include "./minilibx/mlx.h"
 # include <stdio.h>
 #include <math.h>
-
+//инициализация комплексного числа
 typedef struct s_complex
 {
 	double		re;
 	double		im;
 }				t_complex;
-
+//структура для буферизации изображения
 typedef struct s_image
 {
 	void		*img;//экземпляр изображения
@@ -66,12 +66,13 @@ typedef struct s_fractol
 	t_complex	max;
 	t_complex	min;
 	t_complex	c;
+	t_complex	k;
 	void		*mlx_ptr;
 	void		*window_ptr;
 	int			iter;
 	int			max_iter;
 	int			color;
-	
+	int			press;
 }t_fractol;
 
 //fractol_init.c
@@ -89,8 +90,16 @@ void		parse_fractol(char *argv);
 void		menu_fractol(void);
 //fractol_formula.c
 void		mandelbrot(t_fractol *fractol);
-
-void	color_fractol(t_fractol *fractol);
-int key_control(int key, t_fractol *fractol);
-
+void		julia(t_fractol *fractol);
+void		burning_ship(t_fractol *fractol);
+void		celtic_mandelbar(t_fractol *fractol);
+void		perpendicular_buffalo(t_fractol *fractol);
+//fractol_key.c
+void		color_fractol(t_fractol *fractol);
+int 		key_control(int key, t_fractol *fractol);
+void		moving(int key, t_fractol *fractol);
+//fractol_mouse.c
+double		fractol_zoom(double start, double end, double zoom);
+int			mouse_control(int key, int x, int y, t_fractol *fractol);
+int 		change_julia(int x, int y, t_fractol *fractol);
 #endif
