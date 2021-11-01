@@ -22,8 +22,7 @@ Control:
     
     For Julia set:
     
-    Change a parameter:     press and hold the left
-                        mouse button and move mouse   
+    Change a parameter: mouse button and move mouse   
 
 ./fractol Mandelbrot   
 <img width="796" alt="Mandelbrot" src="https://user-images.githubusercontent.com/63720882/139661788-c969d624-1379-400c-b4d5-b40abd89b446.png">
