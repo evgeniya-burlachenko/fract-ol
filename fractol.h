@@ -6,7 +6,7 @@
 /*   By: skelly <skelly@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:03:38 by skelly            #+#    #+#             */
-/*   Updated: 2021/10/22 19:00:25 by skelly           ###   ########.fr       */
+/*   Updated: 2021/11/02 00:23:29 by skelly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int			init_color(t_fractol *fractol);
 //fractol.c
 void 		draw_fractol(t_fractol *fractol);
 void		start_fractol(t_fractol *fractol);
-void		parse_fractol(char *argv);
+void	parse_fractol(char *argv, t_fractol *fractol);
 void		menu_fractol(void);
 //fractol_formula.c
 void		mandelbrot(t_fractol *fractol);

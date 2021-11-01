@@ -6,7 +6,7 @@
 /*   By: skelly <skelly@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 13:33:36 by skelly            #+#    #+#             */
-/*   Updated: 2021/10/22 19:32:54 by skelly           ###   ########.fr       */
+/*   Updated: 2021/11/02 01:35:54 by skelly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ void	init_default(t_fractol *fractol)
 			- fractol->min.re) * HEIGHT / WIDTH; 
 	fractol->color = 1;
 	fractol->press = 0;
-	fractol->k = init_complex(-0.4, 0.6);
+	// fractol->k = init_complex(-0.4, 0.6);
 }

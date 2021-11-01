@@ -6,7 +6,7 @@
 /*   By: skelly <skelly@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:03:28 by skelly            #+#    #+#             */
-/*   Updated: 2021/11/01 14:16:02 by skelly           ###   ########.fr       */
+/*   Updated: 2021/11/02 01:43:21 by skelly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,9 @@ void	start_fractol(t_fractol *fractol)
 	mlx_loop(fractol->mlx_ptr);
 }
 
-void	parse_fractol(char *argv)
+void	parse_fractol(char *argv, t_fractol *fractol)
 {
-	t_fractol	*fractol;
-	
-	fractol = malloc(sizeof(t_fractol));
+	fractol->k = init_complex(-0.4, 0.6);
 	if (!(ft_strncmp(argv, "Mandelbrot", 11)))
 	{
 		fractol->formula = &mandelbrot;
@@ -99,12 +97,6 @@ void	parse_fractol(char *argv)
 		fractol->formula = &celtic_mandelbar;
 		start_fractol(fractol);
 	}
-	else if (!(ft_strncmp(argv, "Perpendicular_buffalo", 22)))
-	{
-		fractol->formula = &perpendicular_buffalo;
-		start_fractol(fractol);
-	}
-	
 	free(fractol);
 	menu_fractol();
 }
@@ -130,10 +122,24 @@ void	menu_fractol(void)
 	exit(0);
 }
 
-int main (int argc, char **argv)
+int	main(int argc, char **argv)
 {
+	t_fractol	*fractol;
+	
+	fractol = malloc(sizeof(t_fractol));
 	if (argc == 2)
-		parse_fractol(argv[1]);
+		parse_fractol(argv[1], fractol);
+	else if (argc == 4)
+	{
+		if (!(ft_strncmp(argv[1], "Julia", 6)))
+		{
+			fractol->k = init_complex(
+					4 * ((double)ft_atoi(argv[2]) / 1000 - 0.5),
+					4 * ((double)(1000 - ft_atoi(argv[3])) / 1000 - 0.5));
+			fractol->formula = &julia;
+			start_fractol(fractol);
+		}
+	}
 	else
 		menu_fractol();
 	return (0);

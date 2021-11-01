@@ -6,7 +6,7 @@
 /*   By: skelly <skelly@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 02:01:40 by skelly            #+#    #+#             */
-/*   Updated: 2021/10/22 10:07:51 by skelly           ###   ########.fr       */
+/*   Updated: 2021/11/02 01:43:57 by skelly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	init_color(t_fractol *fractol)
 {
 	double	t;
 	int		color[4];
-	
 	//деления количества итераций, соответствующих конкретному
 	//пикселю, на максимальное количество итераций,
 	//это дает нам число t на единичном интервале
@@ -57,12 +56,6 @@ int	init_color(t_fractol *fractol)
 		color[3] = (int)(9 * (1 - t) * pow(t, 3) * 255);
 		color[1] = (int)(15 * pow((1 - t), 2) * pow(t, 2) * 255);
 		color[2] = (int)(8.5 * pow((1 - t), 3) * t * 255);
-	}
-	if (fractol->color == 4)
-	{
-		color[3] = (int)(9 * (1 - t) * pow(t, 3) * 255);
-		color[2] = (int)(15 * pow((1 - t), 2) * pow(t, 2) * 255);
-		color[1] = (int)(8.5 * pow((1 - t), 3) * t * 255);
 	}
 	return (create_trgb(color[0], color[1], color[2], color[3]));
 }

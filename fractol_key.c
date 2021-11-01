@@ -6,7 +6,7 @@
 /*   By: skelly <skelly@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 02:34:45 by skelly            #+#    #+#             */
-/*   Updated: 2021/10/22 19:00:04 by skelly           ###   ########.fr       */
+/*   Updated: 2021/11/02 01:43:32 by skelly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	moving(int key, t_fractol *fractol)
 void	color_fractol(t_fractol *fractol)
 {
 	fractol->color++;
-	if (fractol->color > 4)
+	if (fractol->color > 3)
 		fractol->color = 1;
 }
 
