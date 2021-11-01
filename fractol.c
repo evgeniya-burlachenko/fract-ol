@@ -6,7 +6,7 @@
 /*   By: skelly <skelly@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:03:28 by skelly            #+#    #+#             */
-/*   Updated: 2021/10/22 19:36:14 by skelly           ###   ########.fr       */
+/*   Updated: 2021/11/01 14:16:02 by skelly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ void	parse_fractol(char *argv)
 	}
 	
 	free(fractol);
+	menu_fractol();
 }
 
 void	menu_fractol(void)
@@ -124,8 +125,7 @@ void	menu_fractol(void)
 	printf("| Switch color scheme     c                                              |\n");
 	printf("| Basic set               r                                              |\n");
 	printf("| For Julia set:                                                         |\n");
-	printf("| Change a parameter      press and hold the left                        |\n");
-	printf("|                         mouse button and move mouse                    |\n");
+	printf("| Change a parameter      mouse button and move mouse                    |\n");
 	printf(" ------------------------------------------------------------------------ \n");
 	exit(0);
 }
