@@ -8,7 +8,6 @@ Commands:
     ./fractol Julia
     ./fractol Burning_Ship
     ./fractol Celtic_mandelbar
-    ./fractol Perpendicular_buffalo
     ./fractol Julia <x> <y>
     
 Control:
