@@ -35,6 +35,8 @@ Control:
 
 <img width="796" alt="Screenshot 2021-11-01 at 14 18 18" src="https://user-images.githubusercontent.com/63720882/139663710-bb7011d1-4835-42a6-b647-081134032db6.png">
 
+# sources
 
+https://github.com/VBrazhnik/Fract-ol.wiki.git
 
  
