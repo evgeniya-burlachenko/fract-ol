@@ -20,7 +20,7 @@ Control:
     
     Basic set: r;
     
-    For Julia set:
+    For Julia set: <x> <y> parameter
     
     Change a parameter: mouse button and move mouse   
 
