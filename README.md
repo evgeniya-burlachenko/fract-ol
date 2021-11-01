@@ -37,6 +37,7 @@ Control:
 
 # sources
 
-https://github.com/VBrazhnik/Fract-ol.wiki.git
+https://github.com/VBrazhnik/Fract-ol/wiki
+https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html
 
  
