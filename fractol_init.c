@@ -6,7 +6,7 @@
 /*   By: skelly <skelly@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 13:33:36 by skelly            #+#    #+#             */
-/*   Updated: 2021/11/02 01:35:54 by skelly           ###   ########.fr       */
+/*   Updated: 2021/11/02 16:48:08 by skelly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ t_image	*image_init(t_fractol *fractol)
 	t_image	*image;
 
 	image = malloc(sizeof(t_image));
-	if(!image)
-		return(0);
+	if (!image)
+		return (0);
 	//Теперь мы можем инициализировать изображение
 	//размером 1000 × 1000 следующим образом:
 	image->img = mlx_new_image(fractol->mlx_ptr, WIDTH, HEIGHT);
@@ -39,7 +39,7 @@ t_image	*image_init(t_fractol *fractol)
 t_complex	init_complex(double re, double im)// инициализация комплексного числа
 {
 	t_complex	complex;
-	
+
 	complex.re = re;
 	complex.im = im;
 	return (complex);

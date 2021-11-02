@@ -6,7 +6,7 @@
 /*   By: skelly <skelly@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 02:13:30 by skelly            #+#    #+#             */
-/*   Updated: 2021/11/01 21:36:32 by skelly           ###   ########.fr       */
+/*   Updated: 2021/11/02 16:47:37 by skelly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ void	burning_ship(t_fractol *fractol)
 		fractol->iter++;
 	}
 }
-void		celtic_mandelbar(t_fractol *fractol)
+
+void	celtic_mandelbar(t_fractol *fractol)
 {
 	t_complex	z;
 
@@ -77,25 +78,8 @@ void		celtic_mandelbar(t_fractol *fractol)
 		&& fractol->iter < fractol->max_iter)
 	{
 		z = init_complex(
-			fabs(pow(z.re, 2.0) - pow(z.im, 2.0)) + fractol->c.re,
-			-2.0 * z.re * z.im + fractol->c.im);
+				fabs(pow(z.re, 2.0) - pow(z.im, 2.0)) + fractol->c.re,
+				-2.0 * z.re * z.im + fractol->c.im);
 		fractol->iter++;
 	}
-}
-
-void		perpendicular_buffalo(t_fractol *fractol)
-{
-	t_complex	z;
-
-	z = init_complex(fractol->c.re, fractol->c.im);
-	fractol->iter = 0;
-	while (pow(z.re, 2.0) + pow(z.im, 2.0) <= 4
-		&& fractol->iter < fractol->max_iter)
-	{
-		z = init_complex(
-			fabs(pow(z.re, 2.0) - pow(z.im, 2.0)) + fractol->c.re,
-			-2.0 * z.re * fabs(z.im) + fractol->c.im);
-		fractol->iter++;
-	}
-
 }

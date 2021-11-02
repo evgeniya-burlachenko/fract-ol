@@ -6,17 +6,16 @@
 /*   By: skelly <skelly@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 02:34:45 by skelly            #+#    #+#             */
-/*   Updated: 2021/11/02 01:43:32 by skelly           ###   ########.fr       */
+/*   Updated: 2021/11/02 16:48:38 by skelly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-
 void	moving(int key, t_fractol *fractol)
 {
 	t_complex	delta;
-	
+
 	delta = init_complex((fractol->max.re - fractol->min.re) * 0.05,
 			(fractol->max.im - fractol->min.im) * 0.05);
 	if (key == ARROW_LEFT)
@@ -48,7 +47,7 @@ void	color_fractol(t_fractol *fractol)
 		fractol->color = 1;
 }
 
-int key_control(int key, t_fractol *fractol)
+int	key_control(int key, t_fractol *fractol)
 {
 	printf("%i\n", key);
 	if (key == PLUS_NUM_LOCK || key == PLUS)
@@ -61,9 +60,9 @@ int key_control(int key, t_fractol *fractol)
 	if (key == MINUS_NUM_LOCK || key == MINUS)
 	{
 		if (fractol->max_iter > 50)
-			fractol->max_iter *=0.95;
+			fractol->max_iter *= 0.95;
 		else if (fractol->max_iter > 1)
-			fractol->max_iter -=1;
+			fractol->max_iter -= 1;
 	}
 	if (key == RESET_R)
 		init_default(fractol);

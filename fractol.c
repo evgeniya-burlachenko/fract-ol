@@ -6,13 +6,13 @@
 /*   By: skelly <skelly@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:03:28 by skelly            #+#    #+#             */
-/*   Updated: 2021/11/02 01:43:21 by skelly           ###   ########.fr       */
+/*   Updated: 2021/11/02 16:46:46 by skelly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void draw_fractol(t_fractol *fractol)
+void	draw_fractol(t_fractol *fractol)
 {
 	int			x;
 	int			y;
@@ -69,7 +69,6 @@ void	start_fractol(t_fractol *fractol)
 	if (fractol->formula == &julia)
 		mlx_hook(fractol->window_ptr, MOUSE_MOTION, 0, change_julia, fractol);
 	draw_fractol(fractol);
-	
 	// нужно будет вызвать, mlx_loop, чтобы начать рендеринг окна. 
 	mlx_loop(fractol->mlx_ptr);
 }
@@ -125,7 +124,7 @@ void	menu_fractol(void)
 int	main(int argc, char **argv)
 {
 	t_fractol	*fractol;
-	
+
 	fractol = malloc(sizeof(t_fractol));
 	if (argc == 2)
 		parse_fractol(argv[1], fractol);
@@ -134,8 +133,8 @@ int	main(int argc, char **argv)
 		if (!(ft_strncmp(argv[1], "Julia", 6)))
 		{
 			fractol->k = init_complex(
-					4 * ((double)ft_atoi(argv[2]) / 1000 - 0.5),
-					4 * ((double)(1000 - ft_atoi(argv[3])) / 1000 - 0.5));
+					4 * ((double)ft_atoi(argv[2]) / WIDTH - 0.5),
+					4 * ((double)(HEIGHT - ft_atoi(argv[3])) / HEIGHT - 0.5));
 			fractol->formula = &julia;
 			start_fractol(fractol);
 		}

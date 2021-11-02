@@ -6,7 +6,7 @@
 /*   By: skelly <skelly@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 10:35:31 by skelly            #+#    #+#             */
-/*   Updated: 2021/10/22 19:06:00 by skelly           ###   ########.fr       */
+/*   Updated: 2021/11/02 16:51:34 by skelly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,15 @@ double	fractol_zoom(double start, double end, double zoom)
 
 int	mouse_control(int key, int x, int y, t_fractol *fractol)
 {	
-	printf("%i\n", key);
 	t_complex	mouse;
 	double		zoom;
-
+	//printf("%i\n", key);
 	if (key == MOUSE_BUTTON)
 		fractol->press = !fractol->press;
 	mouse.re = (fractol->min.re + x
-		* ((fractol->max.re - fractol->min.re) / (WIDTH)));
+			* ((fractol->max.re - fractol->min.re) / (WIDTH)));
 	mouse.im = (fractol->max.im - y
-		* ((fractol->max.im - fractol->min.im) / (HEIGHT)));
+			* ((fractol->max.im - fractol->min.im) / (HEIGHT)));
 	if (key == MOUSE_ZOOM_PLUS)
 		zoom = 1.20;
 	else if (key == MOUSE_ZOOM_MINUS)
@@ -40,10 +39,10 @@ int	mouse_control(int key, int x, int y, t_fractol *fractol)
 	fractol->max.re = fractol_zoom(mouse.re, fractol->max.re, zoom);
 	fractol->max.im = fractol_zoom(mouse.im, fractol->max.im, zoom);
 	draw_fractol(fractol);
-	return(0);	
+	return (0);
 }
 
-int change_julia(int x, int y, t_fractol *fractol)
+int	change_julia(int x, int y, t_fractol *fractol)
 {
 	if (fractol->press == 1)
 	{
@@ -52,5 +51,5 @@ int change_julia(int x, int y, t_fractol *fractol)
 				4 * ((double)(HEIGHT - y) / HEIGHT - 0.5));
 		draw_fractol(fractol);
 	}
-	return(0);
+	return (0);
 }

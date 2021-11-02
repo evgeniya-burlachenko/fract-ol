@@ -6,7 +6,7 @@
 /*   By: skelly <skelly@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 02:01:40 by skelly            #+#    #+#             */
-/*   Updated: 2021/11/02 01:43:57 by skelly           ###   ########.fr       */
+/*   Updated: 2021/11/02 16:47:00 by skelly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	init_color(t_fractol *fractol)
 	//это дает нам число t на единичном интервале
 	t = (double)fractol->iter / (double)fractol->max_iter;
 	color[0] = 0;
-
 	if (fractol->color == 1)
 	{
 		//полиномы Бернштейна
