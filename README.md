@@ -1,5 +1,5 @@
 # fract-ol
-
+#include "./minilibx/mlx.h"
 # How to run program?
 
 Commands:
