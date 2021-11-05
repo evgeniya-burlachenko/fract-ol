@@ -1,5 +1,5 @@
 # fract-ol
-#include "./minilibx/mlx.h"
+
 # How to run program?
 
 Commands:
@@ -35,7 +35,7 @@ Control:
 
 <img width="796" alt="Screenshot 2021-11-01 at 14 18 18" src="https://user-images.githubusercontent.com/63720882/139663710-bb7011d1-4835-42a6-b647-081134032db6.png">
 
-./fractol Julia 150 500 (W=1000, H=1000) 
+./fractol Julia 150 500 
 
 <img width="797" alt="Screenshot 2021-11-02 at 02 03 54" src="https://user-images.githubusercontent.com/63720882/139753437-412e1243-75b3-4e1c-b5d9-d76fd1c2616a.png">
 
@@ -45,5 +45,3 @@ Control:
 https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html
 
 https://github.com/VBrazhnik/Fract-ol/wiki
-
-https://en.m.wikipedia.org/wiki/Julia_set

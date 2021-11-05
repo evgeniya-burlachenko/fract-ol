@@ -6,15 +6,15 @@
 /*   By: skelly <skelly@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:03:38 by skelly            #+#    #+#             */
-/*   Updated: 2021/11/02 16:52:49 by skelly           ###   ########.fr       */
+/*   Updated: 2021/11/02 17:36:50 by skelly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define WIDTH 				800
-# define HEIGHT				800
+# define WIDTH 				1000
+# define HEIGHT				1000
 
 
 # define KEY_PRESS			2
